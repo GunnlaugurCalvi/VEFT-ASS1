@@ -94,13 +94,13 @@ namespace AssApp.Controllers
         public IActionResult UpdateCourse([FromBody] Course updatedCourse, int courseId)
         {
             var course = _courses.SingleOrDefault(x => x.Id == courseId);
-
-            _courses.Remove(course);
-
+            
             if (course == null)
             {
                 return NotFound("Course Id: " + courseId + " not found");
             }
+
+            _courses.Remove(course);
 
             _courses.Add(updatedCourse);
 
@@ -127,12 +127,11 @@ namespace AssApp.Controllers
 
             Course course = _courses.Find(x => x.Id == courseId);
 
-            if (course == null || student == null)
+            /*if (course == null || student == null)
             {
                 return StatusCode(412);
-            }
-
-
+            }*/
+            
             course.Students.Add(student);
             return Created("GetStudentsById", student);
             
