@@ -108,17 +108,16 @@ namespace AssApp.Controllers
         }
 
         [HttpGet("{courseId:int}/students", Name = "GetStudentsInCourse")]
-        public List<Student> GetStudentsInCourse(int courseId)
+        public IActionResult GetStudentsInCourse(int courseId)
         {
             Course course = _courses.SingleOrDefault(x => x.Id == courseId);
         
             if (course == null)
             {
-                return null;
+                return NotFound();
             }
 
-
-            return course.Students;
+            return Ok(course.Students);
         }
 
         [HttpPost("{courseId:int}/students")]
@@ -127,6 +126,7 @@ namespace AssApp.Controllers
         {
 
             Course course = _courses.Find(x => x.Id == courseId);
+
             if (course == null || student == null)
             {
                 return StatusCode(412);
