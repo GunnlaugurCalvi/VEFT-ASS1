@@ -20,18 +20,24 @@ namespace AssApp.Controllers
             new Course()
             {
                 Id = 1, Name = "Veftjonustur", T_Id = "T-514-VEFT" , StartDate = "18-05-2005", EndDate = "19-05-1005",
-                Students =  new List<Student>() {
+                Students =  new List<Student> {
                     new Student()
                     {
                         Ssn = 170795,
-                        Name = "Gulli",
+                        Name = "Gulli"
+                    },
+                    new Student()
+                    {
+                        Ssn = 12345,
+                        Name = "prumpi"
                     }
                 }
+                
             },
             new Course()
             {
                 Id = 2, Name = "Forritun", T_Id = "T-101-FORR" , StartDate = "18-06-2005", EndDate = "19-06-1005",
-                Students = new List<Student>()
+                Students = new List<Student>
                 {
                     new Student()
                     {
@@ -110,7 +116,7 @@ namespace AssApp.Controllers
         [HttpGet("{courseId:int}/students", Name = "GetStudentsInCourse")]
         public IActionResult GetStudentsInCourse(int courseId)
         {
-            Course course = _courses.SingleOrDefault(x => x.Id == courseId);
+            var course = _courses.SingleOrDefault(x => x.Id == courseId);
         
             if (course == null)
             {
@@ -122,19 +128,18 @@ namespace AssApp.Controllers
 
         [HttpPost("{courseId:int}/students")]
 
-        public IActionResult AddStudentToCourse([FromBody] Student student, int courseId)
+        public IActionResult AddStudentToCourse([FromBody] Student newbie , int courseId)
         {
+            var course = _courses.SingleOrDefault(x => x.Id == courseId);
 
-            Course course = _courses.Find(x => x.Id == courseId);
-
-            /*if (course == null || student == null)
+            if (course == null || newbie == null)
             {
-                return StatusCode(412);
-            }*/
-            
-            course.Students.Add(student);
-            return Created("GetStudentsById", student);
-            
+                return StatusCode(400);
+            }
+ 
+            course.Students.Add(newbie);
+            return Created("GetStudentsInCourse", newbie);
+
         }
 
     }
