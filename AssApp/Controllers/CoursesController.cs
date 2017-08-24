@@ -63,7 +63,7 @@ namespace AssApp.Controllers
 
             if (course == null)
             {
-                return NotFound();
+                return NotFound("Course Id " + courseId + " does not exist");
             }
 
             return Ok(course);
@@ -79,6 +79,7 @@ namespace AssApp.Controllers
             
             _courses.Add(course);
 
+            // Returning 201
             return CreatedAtRoute("GetCourseById", new {courseId = course.Id}, course);
         }
 
@@ -87,30 +88,39 @@ namespace AssApp.Controllers
         public IActionResult DeleteCourse(int courseId)
         {
             var course = _courses.SingleOrDefault(x => x.Id == courseId);
+
             if (course == null)
             {
-                return NotFound("Course Id: " + courseId + " not found");
+                return NotFound("Course Id " + courseId + " does not exist");
             }
 
             _courses.Remove(course);
-            return StatusCode(204);
+
+            return new NoContentResult();
         }
 
        [HttpPut("{courseId:int}")]
         public IActionResult UpdateCourse([FromBody] Course updatedCourse, int courseId)
         {
-            var course = _courses.SingleOrDefault(x => x.Id == courseId);
+            // Checking if input body is empty or ID mismatch between body and route 
+            if (updatedCourse == null || updatedCourse.Id != courseId)
+            {
+                return BadRequest();
+            }
             
+            var course = _courses.SingleOrDefault(x => x.Id == courseId);
+
             if (course == null)
             {
-                return NotFound("Course Id: " + courseId + " not found");
+                return NotFound("Course Id " + courseId + " does not exist");
             }
 
+            // Virtual update
+            // Deleting and creating new with updated data.
             _courses.Remove(course);
-
             _courses.Add(updatedCourse);
 
-            return Created("GetCourseById", updatedCourse);
+            return StatusCode(204);
         }
 
         [HttpGet("{courseId:int}/students", Name = "GetStudentsInCourse")]
@@ -120,7 +130,12 @@ namespace AssApp.Controllers
         
             if (course == null)
             {
-                return NotFound();
+                return NotFound("Course Id " + courseId + " does not exist");
+            }
+
+            if (course.Students == null)
+            {
+                return NotFound("No students found in course");
             }
 
             return Ok(course.Students);
@@ -128,17 +143,17 @@ namespace AssApp.Controllers
 
         [HttpPost("{courseId:int}/students")]
 
-        public IActionResult AddStudentToCourse([FromBody] Student newbie , int courseId)
+        public IActionResult AddStudentToCourse([FromBody] Student newStudent , int courseId)
         {
             var course = _courses.SingleOrDefault(x => x.Id == courseId);
 
-            if (course == null || newbie == null)
+            if (course == null || newStudent == null)
             {
                 return StatusCode(400);
             }
  
-            course.Students.Add(newbie);
-            return Created("GetStudentsInCourse", newbie);
+            course.Students.Add(newStudent);
+            return Created("GetStudentsInCourse", newStudent);
 
         }
 

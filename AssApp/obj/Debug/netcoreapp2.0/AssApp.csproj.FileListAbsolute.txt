@@ -20,3 +20,14 @@ C:\Users\gulli\Documents\Vefthjonustur\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\
 C:\Users\gulli\Documents\Vefthjonustur\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.runtimeconfig.dev.json
 C:\Users\gulli\Documents\Vefthjonustur\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.dll
 C:\Users\gulli\Documents\Vefthjonustur\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.pdb
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.deps.json
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.runtimeconfig.json
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.runtimeconfig.dev.json
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.dll
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\bin\Debug\netcoreapp2.0\AssApp.pdb
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\obj\Debug\netcoreapp2.0\AssApp.csprojResolveAssemblyReference.cache
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\obj\Debug\netcoreapp2.0\AssApp.csproj.CoreCompileInputs.cache
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\obj\Debug\netcoreapp2.0\AssApp.AssemblyInfoInputs.cache
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\obj\Debug\netcoreapp2.0\AssApp.AssemblyInfo.cs
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\obj\Debug\netcoreapp2.0\AssApp.dll
+C:\Diskar\Vefforritun\apimain\VEFT-ASS1\AssApp\obj\Debug\netcoreapp2.0\AssApp.pdb
