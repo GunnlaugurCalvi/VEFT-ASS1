@@ -114,7 +114,7 @@ namespace AssApp.Controllers
         
             if (course == null)
             {
-                return null
+                return null;
             }
 
 
