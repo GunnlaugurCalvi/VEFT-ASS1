@@ -13124,11 +13124,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\AssApp\\AssApp\\AssApp.csproj",
+      "projectUniqueName": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\VEFT-ASS1\\AssApp\\AssApp.csproj",
       "projectName": "AssApp",
-      "projectPath": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\AssApp\\AssApp\\AssApp.csproj",
+      "projectPath": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\VEFT-ASS1\\AssApp\\AssApp.csproj",
       "packagesPath": "C:\\Users\\gulli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\AssApp\\AssApp\\obj\\",
+      "outputPath": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\VEFT-ASS1\\AssApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AssApp.Controllers.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using static System.Diagnostics.Debug;
 
 
 namespace AssApp.Controllers
@@ -88,9 +90,53 @@ namespace AssApp.Controllers
             return StatusCode(204);
         }
 
-        public IActionResult UpdateCourse()
+       [HttpPut("{courseId:int}")]
+        public IActionResult UpdateCourse([FromBody] Course updatedCourse, int courseId)
         {
+            var course = _courses.SingleOrDefault(x => x.Id == courseId);
+
+            _courses.Remove(course);
+
+            if (course == null)
+            {
+                return NotFound("Course Id: " + courseId + " not found");
+            }
+
+            _courses.Add(updatedCourse);
+
+            return Created("GetCourseById", updatedCourse);
+        }
+
+        [HttpGet("{courseId:int}/students", Name = "GetStudentsInCourse")]
+        public List<Student> GetStudentsInCourse(int courseId)
+        {
+            Course course = _courses.SingleOrDefault(x => x.Id == courseId);
+        
+            if (course == null)
+            {
+                return null
+            }
+
+
+            return course.Students;
+        }
+
+        [HttpPost("{courseId:int}/students")]
+
+        public IActionResult AddStudentToCourse([FromBody] Student student, int courseId)
+        {
+
+            Course course = _courses.Find(x => x.Id == courseId);
+            if (course == null || student == null)
+            {
+                return StatusCode(412);
+            }
+
+
+            course.Students.Add(student);
+            return Created("GetStudentsById", student);
             
         }
+
     }
 }
