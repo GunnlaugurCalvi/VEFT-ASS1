@@ -56,6 +56,7 @@ namespace AssApp.Controllers
             return Ok(_courses);
         }
 
+        /*api/courses/courseID*/
         [HttpGet("{courseID:int}", Name = "GetCourseById")]
         public IActionResult GetCourseById(int courseId)
         {
@@ -69,22 +70,23 @@ namespace AssApp.Controllers
             return Ok(course);
         }
 
+        /*api/courses*/
         [HttpPost]
         public IActionResult AddCourse([FromBody] Course course)
         {
             if (!ModelState.IsValid)
             {
-                return StatusCode(412);
+                return StatusCode(412); // Precondition Failed
             }
             
             _courses.Add(course);
 
-            // Returning 201
-            return CreatedAtRoute("GetCourseById", new {courseId = course.Id}, course);
+            
+            return CreatedAtRoute("GetCourseById", new {courseId = course.Id}, course); // Created
         }
 
+        /*api/courses/courseID*/
         [HttpDelete("{courseId:int}")]
-        
         public IActionResult DeleteCourse(int courseId)
         {
             var course = _courses.SingleOrDefault(x => x.Id == courseId);
@@ -96,16 +98,18 @@ namespace AssApp.Controllers
 
             _courses.Remove(course);
 
-            return new NoContentResult();
+
+            return StatusCode(204); //No Content
         }
 
-       [HttpPut("{courseId:int}")]
+        /*api/courses/courseID*/
+        [HttpPut("{courseId:int}")]
         public IActionResult UpdateCourse([FromBody] Course updatedCourse, int courseId)
         {
             // Checking if input body is empty or ID mismatch between body and route 
             if (updatedCourse == null || updatedCourse.Id != courseId)
             {
-                return BadRequest();
+                return StatusCode(400); // Bad Request
             }
             
             var course = _courses.SingleOrDefault(x => x.Id == courseId);
@@ -120,8 +124,10 @@ namespace AssApp.Controllers
             _courses.Remove(course);
             _courses.Add(updatedCourse);
 
-            return StatusCode(204);
+            return StatusCode(204); // No Content
         }
+
+        /*api/courses/courseID/students*/ 
 
         [HttpGet("{courseId:int}/students", Name = "GetStudentsInCourse")]
         public IActionResult GetStudentsInCourse(int courseId)
@@ -141,20 +147,26 @@ namespace AssApp.Controllers
             return Ok(course.Students);
         }
 
+        /*api/courses/courseID/students*/
         [HttpPost("{courseId:int}/students")]
-
         public IActionResult AddStudentToCourse([FromBody] Student newStudent , int courseId)
         {
             var course = _courses.SingleOrDefault(x => x.Id == courseId);
 
             if (course == null || newStudent == null)
             {
-                return StatusCode(400);
+                return StatusCode(400); // Bad Request
+            }
+
+            bool isDuplicate = course.Students.Any(x => x.Ssn == newStudent.Ssn);
+
+            if (isDuplicate)
+            {
+                return StatusCode(409); // Conflict
             }
  
             course.Students.Add(newStudent);
             return Created("GetStudentsInCourse", newStudent);
-
         }
 
     }
