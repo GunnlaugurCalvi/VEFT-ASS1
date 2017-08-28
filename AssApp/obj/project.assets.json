@@ -13115,7 +13115,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\laiart\\.nuget\\packages\\": {},
+    "C:\\Users\\gulli\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13124,17 +13124,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Diskar\\Vefforritun\\apimain\\VEFT-ASS1\\AssApp\\AssApp.csproj",
+      "projectUniqueName": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\VEFT-ASS1\\AssApp\\AssApp.csproj",
       "projectName": "AssApp",
-      "projectPath": "C:\\Diskar\\Vefforritun\\apimain\\VEFT-ASS1\\AssApp\\AssApp.csproj",
-      "packagesPath": "C:\\Users\\laiart\\.nuget\\packages\\",
-      "outputPath": "C:\\Diskar\\Vefforritun\\apimain\\VEFT-ASS1\\AssApp\\obj\\",
+      "projectPath": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\VEFT-ASS1\\AssApp\\AssApp.csproj",
+      "packagesPath": "C:\\Users\\gulli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gulli\\Documents\\Vefthjonustur\\VEFT-ASS1\\AssApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\laiart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gulli\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

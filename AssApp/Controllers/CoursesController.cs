@@ -19,7 +19,7 @@ namespace AssApp.Controllers
         {
             new Course()
             {
-                Id = 1, Name = "Veftjonustur", T_Id = "T-514-VEFT" , StartDate = "18-05-2005", EndDate = "19-05-1005",
+                Id = 1, Name = "Veftjonustur", T_Id = "T-514-VEFT" , StartDate = "18-01-17", EndDate = "19-05-17",
                 Students =  new List<Student> {
                     new Student()
                     {
@@ -28,7 +28,7 @@ namespace AssApp.Controllers
                     },
                     new Student()
                     {
-                        Ssn = 12345,
+                        Ssn = 200795,
                         Name = "prumpi"
                     }
                 }
@@ -36,13 +36,18 @@ namespace AssApp.Controllers
             },
             new Course()
             {
-                Id = 2, Name = "Forritun", T_Id = "T-101-FORR" , StartDate = "18-06-2005", EndDate = "19-06-1005",
+                Id = 2, Name = "Tolvuoryggi", T_Id = "T-420-TOOR" , StartDate = "18-06-17", EndDate = "11-07-17",
                 Students = new List<Student>
                 {
                     new Student()
                     {
                         Ssn = 160187,
                         Name = "Arnor"
+                    },
+                    new Student()
+                    {
+                        Ssn = 010105,
+                        Name = "Hrolfur"
                     }
                 }
             }
